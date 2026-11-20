@@ -1,0 +1,243 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a2a1f"><title>Amigo Secreto da Família</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:radial-gradient(60rem 30rem at 50% -10%,#14532d99,transparent),radial-gradient(40rem 25rem at 100% 100%,#e5383b26,transparent),#0a2a1f;background-attachment:fixed;min-height:100vh;color:#fff;font:400 17px/1.5 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Figtree,system-ui,sans-serif;letter-spacing:-.01em;margin:0}
+h1{font-size:2.9rem;line-height:1.05;font-weight:800}h2{font-size:1.3rem}h3{font-size:1.1rem}p{margin:0}
+.wrap{max-width:36rem;margin:0 auto;padding:0 1rem 4rem;display:flex;flex-direction:column;gap:1rem}
+header{display:flex;align-items:center;justify-content:space-between;padding:1.2rem 0 .4rem}
+header a{display:flex;align-items:center;gap:.5rem;color:#fff;text-decoration:none;font:800 1.1rem "Bricolage Grotesque",sans-serif}
+.logo{width:36px;height:36px;border-radius:50%;background:#f6c85f;display:grid;place-items:center}
+.lights{display:flex;gap:6px}.lights i{width:10px;height:10px;border-radius:50%;animation:tw 1.8s infinite}
+.hero{padding:2rem 0 .5rem;display:flex;flex-direction:column;gap:1rem}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:1.2rem;display:flex;flex-direction:column;gap:.8rem}
+.mut{color:rgba(255,255,255,.7)}.gold{color:#f6c85f}
+label{display:flex;flex-direction:column;gap:.35rem;color:rgba(255,255,255,.75);font-size:1rem}
+input,select,textarea{width:100%;min-height:56px;border-radius:16px;padding:0 1rem;font:inherit;font-size:1.1rem;color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15)}
+textarea{padding:.8rem 1rem;resize:vertical}option{background:#0a2a1f}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#f6c85f;box-shadow:0 0 0 3px #f6c85f55}
+::placeholder{color:rgba(255,255,255,.4)}
+.btn{display:block;width:100%;min-height:56px;line-height:56px;border:0;border-radius:999px;padding:0 1.5rem;font:600 1.1rem Figtree,sans-serif;text-align:center;text-decoration:none;color:#fff;cursor:pointer;transition:transform .15s}
+.btn:active{transform:scale(.97)}.btn:focus-visible,.x:focus-visible,.gb:focus-visible{outline:3px solid #f6c85f}
+.red{background:#e5383b;box-shadow:0 8px 24px -8px #e5383b}.gold.btn,.btn.gold{background:#f6c85f;color:#0a2a1f}
+.ghost{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.2)}.wa{background:#25d366;color:#052e16}
+.row{display:flex;gap:.5rem;align-items:center}.grow{flex:1}.g2{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.x{min-width:56px;height:56px;border:0;border-radius:16px;background:#e5383b;color:#fff;font-size:1.2rem;cursor:pointer}
+.gb{height:56px;border:0;border-radius:16px;padding:0 1.1rem;background:#f6c85f;color:#0a2a1f;font:600 1rem Figtree,sans-serif;cursor:pointer;white-space:nowrap}
+.err{background:rgba(239,68,68,.15);border:1px solid rgba(248,113,113,.5);border-radius:16px;padding:.8rem}
+.bad{border-color:#f87171!important}input.bad,textarea.bad,select.bad{box-shadow:0 0 0 3px #f8717155}.err ul{margin:.4rem 0 0;padding-left:1.2rem}
+input[type=checkbox]{width:28px;min-height:28px;height:28px;padding:0;accent-color:#f6c85f;flex:none}.chk{flex-direction:row;align-items:center;gap:.7rem;color:#fff}
+.row input{min-width:0}
+.center{text-align:center;display:grid;gap:.6rem;justify-items:center}.wl{text-align:left;width:100%;display:grid;gap:.4rem;border-top:1px solid rgba(255,255,255,.15);padding-top:.8rem}
+.box{width:8rem;height:8rem;border-radius:28px;background:#e5383b;display:grid;place-items:center;font-size:4.5rem;margin:1.5rem 0 .5rem}
+.name{font:800 3.2rem/1.1 "Bricolage Grotesque",sans-serif;color:#f6c85f;word-break:break-word}
+.shake{animation:shake .4s infinite,glow 1.2s infinite}.pop{animation:pop .7s cubic-bezier(.2,1.4,.4,1) both}
+@keyframes tw{0%,100%{opacity:.35}50%{opacity:1}}@keyframes shake{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(7deg) scale(1.08)}}
+@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}@keyframes glow{0%,100%{box-shadow:0 0 30px #f6c85f55}50%{box-shadow:0 0 80px #f6c85fb0}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style></head><body><div id="app"></div><script>
+const $=s=>document.querySelector(s),app=$("#app");
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const enc=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o)))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"");
+const dec=s=>{try{s=s.replace(/-/g,"+").replace(/_/g,"/");return JSON.parse(decodeURIComponent(escape(atob(s+"=".repeat((4-s.length%4)%4)))))}catch{return null}};
+const ld=(k,d)=>{try{return JSON.parse(localStorage.getItem("as:"+k))??d}catch{return d}};
+const sv=(k,v)=>{try{localStorage.setItem("as:"+k,JSON.stringify(v))}catch{}};
+const E=()=>({name:"",pw:false,limit:false,min:"",max:"",rules:"",wl:true,people:[],blocked:[]});
+let S={...E(),...ld("draft",{})},err="",info="",D=null,tried=false,bad={},ask=false,LK=null,PL=null,PC="",JL=null;
+const getL=()=>ld("links",null)||LK;
+const save=()=>sv("draft",S);
+const F=[["gifts","Sugestões de presentes"],["clothes","Tamanho de roupa"],["shoes","Tamanho de calçado"],["prefs","Preferências pessoais"],["notes","Observações"]];
+const brl=n=>Number(n).toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+const base=()=>location.href.split("#")[0];
+const JOIN_MSG=pw=>"Olá! Entre no nosso Amigo Secreto pelo link abaixo, informe seu nome"+(pw?" e uma senha":"")+" e gere seu código para o sorteio: ";
+const MSG=pw=>"Olá! Seu amigo secreto da família já foi sorteado! Acesse o link, digite seu nome"+(pw?" e sua senha":"")+" e descubra quem você tirou: ";
+const go=h=>{location.hash=h};
+const card=(h,c="")=>'<section class="card '+c+'">'+h+'</section>';
+const errH=()=>err?`<p role="alert" class="err">${esc(err)}</p>`:"";
+const rulesHtml=d=>{let h="";const a=d.min!==""&&d.min!=null,b=d.max!==""&&d.max!=null;h+=a||b?`<p>💰 Valor: ${a?"de "+brl(d.min):""} ${b?"até "+brl(d.max):""}</p>`:"<p>💰 Sem limite de valor</p>";if(d.rules)h+=`<p style="white-space:pre-wrap">📜 ${esc(d.rules)}</p>`;return h};
+const wlHtml=(w,n)=>{const r=F.filter(([k])=>w&&w[k]);return r.length?`<div class="wl"><h3>Lista de desejos de ${esc(n)}</h3>${r.map(([k,l])=>`<p><b>${l}:</b> <span style="white-space:pre-wrap">${esc(w[k])}</span></p>`).join("")}</div>`:`<p>${esc(n)} ainda não preencheu a lista de desejos.</p>`};
+async function cp(t,b){try{await navigator.clipboard.writeText(t);const o=b.textContent;b.textContent="Copiado!";setTimeout(()=>b.textContent=o,1500)}catch{prompt("Copie:",t)}}
+const rnd=n=>{const m=Math.floor(2**32/n)*n;let x;do{x=crypto.getRandomValues(new Uint32Array(1))[0]}while(x>=m);return x%n};
+function perm(n,bl){for(let t=0;t<5000;t++){const p=[...Array(n).keys()];for(let i=n-1;i>0;i--){const j=rnd(i+1);[p[i],p[j]]=[p[j],p[i]]}if(p.every((r,g)=>r!==g&&!bl.has(g+">"+r)))return p}return null}
+
+const norm=s=>String(s??"").trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s+/g," ");
+const tob=u=>{let s="";u.forEach(x=>s+=String.fromCharCode(x));return btoa(s).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,"")};
+const fromb=s=>{s=s.replace(/-/g,"+").replace(/_/g,"/");s+="=".repeat((4-s.length%4)%4);return Uint8Array.from(atob(s),c=>c.charCodeAt(0))};
+async function key(m,salt){const k=await crypto.subtle.importKey("raw",new TextEncoder().encode(m),"PBKDF2",false,["deriveKey"]);return crypto.subtle.deriveKey({name:"PBKDF2",salt,iterations:150000,hash:"SHA-256"},k,{name:"AES-GCM",length:256},false,["encrypt","decrypt"])}
+async function seal(m,o){const salt=crypto.getRandomValues(new Uint8Array(16)),iv=crypto.getRandomValues(new Uint8Array(12));const c=new Uint8Array(await crypto.subtle.encrypt({name:"AES-GCM",iv},await key(m,salt),new TextEncoder().encode(JSON.stringify(o))));return [salt,iv,c].map(tob).join(".")}
+async function openE(m,e){try{const[a,b,c]=e.split(".").map(fromb);return JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:b},await key(m,a),c)))}catch{return null}}
+
+function buildJoinUrl(){
+  return base()+"#j="+enc({
+    t:"join",
+    name:S.name.trim()||"Amigo Secreto",
+    pw:S.pw?1:0,
+    limit:S.limit?1:0,
+    min:S.limit?S.min:"",
+    max:S.limit?S.max:"",
+    rules:S.rules.trim(),
+    wl:S.wl?1:0
+  });
+}
+function updJoin(){
+  const u=buildJoinUrl();
+  const inp=$("#jurl");if(inp)inp.value=u;
+  const wa=$("#jwa");if(wa)wa.href="https://wa.me/?text="+encodeURIComponent(JOIN_MSG(S.pw)+u);
+}
+
+function home(){
+  const L=getL();
+  return `<div class="hero"><h1>Amigo Secreto da Família</h1><p class="mut">Crie o link de entrada, deixe quem entrou pelo link confirmar presença e sorteie a partir da lista de quem entrou.</p></div>`
+  +`<button class="btn red" onclick="go('novo')">Criar sorteio e gerar link de entrada</button>`
+  +`<button class="btn ghost" onclick="go('entrar')">Abrir um link (entrar ou ver sorteio)</button>`
+  +(L?`<button class="btn ghost" onclick="go('links')">Ver link final de “${esc(L.name)}”</button>`:"");
+}
+
+function novo(){
+  const P=S.people,opts=P.map((p,i)=>`<option value="${i}">${esc(p.n)}</option>`).join("");
+  const joinUrl=buildJoinUrl();
+  bad={};let errs=[];if(tried)errs=check();if(err)errs.push(err);const B=k=>bad[k]?"bad":"";
+  const eb=errs.length?`<div id="errbox" class="err" role="alert"><b>Falta resolver:</b><ul>${errs.map(e=>`<li>${esc(e)}</li>`).join("")}</ul></div>`:"";
+
+  return card(`<label>Nome do sorteio (obrigatório)<input id="dname" class="${B("name")}" value="${esc(S.name)}" maxlength="80" placeholder="Natal 2026" oninput="S.name=this.value;save();updJoin()"></label>`)
+  +card(`<h2>1. Link para quem vai entrar no sorteio</h2><p class="mut">Mande este link no grupo. Cada pessoa entra, digita o nome${S.pw?" e a senha":""} e te envia o código de entrada para entrar na lista abaixo.</p><input id="jurl" readonly value="${esc(joinUrl)}" onclick="this.select()"><div class="row"><button class="btn ghost grow" onclick="cp(buildJoinUrl(),this)">Copiar link de entrada</button><a id="jwa" class="btn wa grow" target="_blank" rel="noreferrer" href="https://wa.me/?text=${encodeURIComponent(JOIN_MSG(S.pw)+joinUrl)}">WhatsApp</a></div>`)
+  +card(`<h2>2. Quem já entrou pelo link (${P.length}) · mínimo 3</h2><p class="mut">Cole aqui os códigos de entrada enviados por quem entrou pelo link (ou adicione manualmente se precisar).</p><textarea id="jcodes" rows="3" placeholder="Cole aqui os códigos de quem entrou pelo link (um por linha)"></textarea><button class="btn gold" onclick="impJoin()">Importar quem entrou pelo link</button>`+(info?`<p class="gold">${esc(info)}</p>`:"")
+  +P.map((p,i)=>`<div class="row"><input class="${B("p"+i)}" aria-label="Nome ${i+1}" value="${esc(p.n)}" maxlength="60" oninput="S.people[${i}].n=this.value;save()">${S.pw?`<input class="${B("s"+i)}" style="flex:0 0 7.5rem" aria-label="Senha ${i+1}" placeholder="Senha" maxlength="30" value="${esc(p.s||"")}" oninput="S.people[${i}].s=this.value;save()">`:""}<button class="x" aria-label="Remover" onclick="del(${i})">✕</button></div>`).join("")
+  +`<div class="row"><input id="nw" maxlength="60" placeholder="Adicionar nome manualmente" onkeydown="if(event.key==='Enter')add()"><button class="gb" onclick="add()">Adicionar</button></div>`
+  +(P.length<3?`<p class="gold">Falta(m) ${3-P.length} pessoa(s) que entraram pelo link para sortear.</p>`:""),B("people"))
+  +card(`<h2>Confirmação de cada pessoa</h2><label>Ao entrar ou abrir o sorteio, a pessoa informa<select onchange="S.pw=this.value==='1';save();render()"><option value="0"${S.pw?"":" selected"}>Só o nome (mais simples)</option><option value="1"${S.pw?" selected":""}>Nome e senha (mais seguro)</option></select></label><p class="mut">${S.pw?"Cada participante define uma senha ao entrar pelo link (mín. 3 caracteres).":"Funciona pelo nome informado na entrada."}</p>`)
+  +card(`<h2>Regras</h2><label>Valor dos presentes<select onchange="S.limit=this.value==='1';save();render()"><option value="0"${S.limit?"":" selected"}>Sem limite de valor</option><option value="1"${S.limit?" selected":""}>Definir valor mínimo e máximo</option></select></label>`+(S.limit?`<div class="g2"><label>Mínimo (R$)<input class="${B("val")}" type="number" min="0" inputmode="decimal" value="${esc(S.min)}" oninput="S.min=this.value;save()"></label><label>Máximo (R$)<input class="${B("val")}" type="number" min="0" inputmode="decimal" value="${esc(S.max)}" oninput="S.max=this.value;save()"></label></div><p class="mut">Preencha o mínimo, o máximo ou os dois.</p>`:"")+`<label>Regras personalizadas (opcional)<textarea rows="3" maxlength="1000" oninput="S.rules=this.value;save()">${esc(S.rules)}</textarea></label>`)
+  +card(`<h2>Quem não pode tirar quem (opcional)</h2><p class="mut">Ex.: casais. Vale nos dois sentidos. Ninguém tira a si mesmo, isso já é garantido.</p>`+S.blocked.map(([a,b],i)=>`<div class="row"><span class="grow">${esc(P[a]?.n)} ↔ ${esc(P[b]?.n)}</span><button class="x" aria-label="Remover bloqueio" onclick="S.blocked.splice(${i},1);save();render()">✕</button></div>`).join("")+`<div class="row"><select id="ba"><option value="">Pessoa 1</option>${opts}</select><select id="bb"><option value="">Pessoa 2</option>${opts}</select></div><button class="btn ghost" onclick="addB()">Bloquear combinação</button>`)
+  +card(`<h2>Lista de desejos</h2><label class="chk"><input type="checkbox"${S.wl?" checked":""} onchange="S.wl=this.checked;save();render()">Usar lista de desejos (opcional)</label>`+(S.wl?`<p class="mut">Quem entrou pelo link já pode preencher a lista de desejos junto com a entrada, ou você pode importar códigos de lista abaixo.</p><textarea id="codes" rows="2" placeholder="Cole aqui códigos de lista de desejos (opcional)"></textarea><button class="btn ghost" onclick="imp()">Importar listas de desejos</button><p class="mut">Listas preenchidas: ${P.filter(p=>p.w&&Object.values(p.w).some(Boolean)).map(p=>esc(p.n)).join(", ")||"nenhuma"}</p>`:`<p class="mut">Desligada: ninguém vai ver nem preencher lista de desejos.</p>`))
+  +eb+(ask?card(`<h2>Sortear com quem entrou pelo link?</h2><p>O sorteio será feito com as ${P.length} pessoas listadas acima. Depois disso não dá para alterar.</p><button class="btn red" onclick="confirmar()">Sim, sortear agora</button><button class="btn ghost" onclick="ask=false;render()">Voltar e revisar</button>`,"ask"):`<button class="btn red" onclick="sortear()">Sortear a partir de quem entrou</button>`);
+}
+
+function impJoin(){
+  const raw=$("#jcodes")?.value||"";
+  const cs=raw.split(/\s+/).map(x=>x.trim()).filter(c=>c.length>15);
+  err="";info="";
+  if(!cs.length){err="Cole pelo menos um código de entrada de quem entrou pelo link.";render();scrollErr();return}
+  let added=0,updated=0,invalid=0;
+  for(const c of cs){
+    const o=dec(c);
+    if(!o||o.t!=="join"||!o.n||!String(o.n).trim()){invalid++;continue}
+    const cleanName=String(o.n).trim().slice(0,60);
+    const cleanPw=o.s?String(o.s).trim().slice(0,30):"";
+    const w={};
+    if(o.w&&typeof o.w==="object"){F.forEach(([k])=>w[k]=String(o.w[k]||"").slice(0,200))}
+    const idx=S.people.findIndex(p=>norm(p.n)===norm(cleanName));
+    if(idx>=0){
+      if(cleanPw)S.people[idx].s=cleanPw;
+      if(Object.values(w).some(Boolean))S.people[idx].w={...(S.people[idx].w||{}),...w};
+      updated++;
+    }else{
+      S.people.push({n:cleanName,s:cleanPw,w});
+      added++;
+    }
+  }
+  save();
+  const parts=[];
+  if(added)parts.push(`${added} nova(s) entrada(s) adicionada(s)`);
+  if(updated)parts.push(`${updated} atualizada(s)`);
+  if(invalid)parts.push(`${invalid} código(s) inválido(s)`);
+  info=parts.join(" · ")||"Nada importado.";
+  render();
+}
+
+function joinPage(c){
+  JL=dec(c);
+  if(!JL||JL.t!=="join")return card("<h2>Link de entrada inválido</h2><p>Peça um link atualizado para quem organizou o sorteio.</p>")+'<button class="btn ghost" onclick="go(\'\')">Voltar ao início</button>';
+  const d={name:JL.name,min:JL.limit?JL.min:"",max:JL.limit?JL.max:"",rules:JL.rules||"",wl:JL.wl!==0};
+  return card(`<h2>Entrar em: ${esc(JL.name||"Amigo Secreto")}</h2><p class="mut">Preencha seus dados para entrar no sorteio e gerar seu código para o organizador.</p>${rulesHtml(d)}`)
+  +card(`<label>Seu nome (obrigatório)<input id="jn" maxlength="60" value="${esc(ld("me",""))}" placeholder="Ex.: Maria Silva"></label>`
+  +(JL.pw?'<label>Sua senha (obrigatório, mín. 3 caracteres)<input id="js" type="password" maxlength="30" placeholder="Ex.: 0412"></label>':"")
+  +(JL.wl!==0?`<h3>Sua lista de desejos (opcional)</h3>`+F.map(([k,l])=>`<label>${l}<textarea rows="2" maxlength="200" id="jw_${k}"></textarea></label>`).join(""):"")
+  +`<div id="jerr"></div><button class="btn gold" onclick="genJoin()">Confirmar entrada e gerar meu código</button><div id="jout"></div>`);
+}
+
+function genJoin(){
+  const n=($("#jn")?.value||"").trim();
+  const pw=JL.pw?($("#js")?.value||"").trim():"";
+  const box=$("#jerr"),out=$("#jout");
+  box.innerHTML="";out.innerHTML="";
+  if(!n){box.innerHTML='<p role="alert" class="err">Digite seu nome para entrar.</p>';return}
+  if(JL.pw&&pw.length<3){box.innerHTML='<p role="alert" class="err">Digite uma senha com pelo menos 3 caracteres.</p>';return}
+  const w={};
+  if(JL.wl!==0){F.forEach(([k])=>w[k]=($("#jw_"+k)?.value||"").trim())}
+  sv("me",n);
+  const code=enc({t:"join",n,s:pw,w});
+  out.innerHTML=`<div class="card" style="margin-top:.8rem"><h3>Você entrou!</h3><p class="mut">Envie este código para quem organizou o sorteio entrar na lista antes de sortear:</p><textarea readonly rows="3" onclick="this.select()">${code}</textarea><button class="btn ghost" onclick="cp('${code}',this)">Copiar meu código</button><a class="btn wa" target="_blank" rel="noreferrer" href="https://wa.me/?text=${encodeURIComponent("Entrei no sorteio "+JL.name+"! Meu código: "+code)}">Enviar código no WhatsApp</a></div>`;
+}
+
+const scrollErr=()=>setTimeout(()=>{const e=$("#errbox");e&&e.scrollIntoView({behavior:"smooth",block:"center"})},60);
+function check(){const m=[],P=S.people;bad={};
+if(!S.name.trim()){m.push("Dê um nome ao sorteio.");bad.name=1}
+if(P.length<3){m.push(`É preciso pelo menos 3 pessoas que entraram pelo link (faltam ${3-P.length}).`);bad.people=1}
+const seen=Object.create(null);let dup=0,empty=0;P.forEach((p,i)=>{const k=norm(p.n);if(!k){empty=1;bad["p"+i]=1}else if(k in seen){dup=1;bad["p"+i]=bad["p"+seen[k]]=1}else seen[k]=i});
+if(empty){m.push("Há participante sem nome. Preencha ou remova a linha vazia.");bad.people=1}
+if(dup){m.push("Há nomes repetidos entre quem entrou. Diferencie os nomes.");bad.people=1}
+if(S.pw&&P.some(p=>(p.s||"").trim().length<3)){m.push("Defina a senha de cada participante (mínimo 3 caracteres).");P.forEach((p,i)=>{if((p.s||"").trim().length<3)bad["s"+i]=1});bad.people=1}
+if(S.limit){const a=S.min!=="",b=S.max!=="";if(!a&&!b){m.push("Informe o valor mínimo ou o máximo, ou escolha “Sem limite de valor”.");bad.val=1}else if(a&&b&&+S.min>+S.max){m.push("O valor mínimo não pode ser maior que o máximo.");bad.val=1}}
+return m}
+function add(){const n=$("#nw").value.trim();err="";if(!n)err="Digite o nome da pessoa antes de adicionar.";else if(S.people.some(p=>norm(p.n)===norm(n)))err="Esse nome já está na lista.";else{S.people.push({n,s:"",w:{}});save()}render();$("#nw")&&$("#nw").focus();if(err)scrollErr()}
+function del(i){err="";S.people.splice(i,1);S.blocked=S.blocked.filter(([a,b])=>a!==i&&b!==i).map(([a,b])=>[a>i?a-1:a,b>i?b-1:b]);save();render()}
+function addB(){const a=$("#ba").value,b=$("#bb").value;err="";if(a===""||b==="")err="Escolha as duas pessoas para bloquear.";else if(a===b)err="Escolha duas pessoas diferentes.";else if(!S.blocked.some(([x,y])=>(x==a&&y==b)||(x==b&&y==a))){S.blocked.push([+a,+b]);save()}render();if(err)scrollErr()}
+function imp(){const cs=$("#codes").value.split(/\s+/).filter(c=>c.length>20);if(!cs.length){info="Cole pelo menos um código de lista antes de importar.";return render()}let ok=0,bad2=0;for(const c of cs){const o=dec(c),p=o&&o.n&&S.people.find(p=>norm(p.n)===norm(o.n));if(p&&o.w){const w={};F.forEach(([k])=>w[k]=String(o.w[k]||"").slice(0,200));p.w={...(p.w||{}),...w};ok++}else bad2++}save();info=ok+" lista(s) importada(s)."+(bad2?` ${bad2} não reconhecida(s): confira se o nome é igual ao da lista.`:"");render()}
+function sortear(){tried=true;err="";if(check().length){render();scrollErr();return}ask=true;render();setTimeout(()=>{const e=$(".ask");e&&e.scrollIntoView({behavior:"smooth",block:"center"})},60)}
+async function confirmar(){try{ask=false;err="";const bt=document.querySelector(".ask .btn.red");bt&&(bt.textContent="Sorteando…",bt.disabled=true);const P=S.people;if(check().length){render();scrollErr();return}
+if(!(crypto&&crypto.subtle))throw new Error("abra o site por um endereço https");
+const bl=new Set;S.blocked.forEach(([a,b])=>{bl.add(a+">"+b);bl.add(b+">"+a)});
+const p=perm(P.length,bl);if(!p){err="Não foi possível sortear com essas restrições. Remova algum bloqueio.";render();scrollErr();return}
+const d={name:S.name.trim(),min:S.limit?S.min:"",max:S.limit?S.max:"",rules:S.rules.trim(),wl:S.wl};
+const en=await Promise.all(P.map((x,i)=>seal(norm(x.n)+(S.pw?"|"+norm(x.s):""),{me:x.n.trim(),to:P[p[i]].n.trim(),w:S.wl?(P[p[i]].w||{}):{}})));
+LK={name:d.name,pw:S.pw,url:base()+"#s="+enc({d,pw:S.pw?1:0,e:en})};sv("links",LK);try{localStorage.removeItem("as:draft")}catch{}S=E();tried=false;go("links")}catch(e){err="Erro inesperado: "+e.message;render();scrollErr()}}
+
+function linksView(){const L=getL();if(!L)return card("<h2>Nenhum sorteio neste aparelho</h2>")+'<button class="btn ghost" onclick="go(\'\')">Voltar ao início</button>';
+return card(`<h2>🎉 ${esc(L.name)}: sorteio feito!</h2><p>Sorteio realizado com quem entrou! Agora mande este <b>link do resultado</b> para todo mundo. Cada pessoa abre, digita ${L.pw?"o nome e a senha dela":"o nome dela"} e descobre quem tirou.</p>${L.pw?'<p class="gold">Lembre cada pessoa da senha que ela usou ao entrar.</p>':""}`)
++card(`<a class="btn wa" target="_blank" rel="noreferrer" href="https://wa.me/?text=${encodeURIComponent(MSG(L.pw)+L.url)}">Enviar resultado pelo WhatsApp</a><button class="btn ghost" onclick="cp(getL().url,this)">Copiar link do resultado</button>${L.url.length>6000?'<p class="mut">Este link ficou longo por causa das listas de desejos. Se o WhatsApp cortar o link, refaça com listas menores.</p>':""}`)}
+
+function entrar(){return card(`<label>Cole um link de entrada (#j=…) ou do sorteio (#s=…)<input id="lk" placeholder="https://…#j=… ou #s=…"></label>${errH()}<button class="btn red" onclick="ent()">Abrir link</button>`)}
+function ent(){const v=$("#lk").value.trim();if(!v){err="Cole o link que você recebeu.";return render()}
+const sj=v.indexOf("#j="),ss=v.indexOf("#s=");
+if(sj>=0){const c=v.slice(sj+3),o=dec(c);if(o&&o.t==="join"){err="";return go("j="+c)}}
+if(ss>=0){const c=v.slice(ss+3),o=dec(c);if(o&&o.e){err="";return go("s="+c)}}
+err="Link não reconhecido. Copie o link inteiro que você recebeu.";render()}
+
+function wpage(){return card(`<h2>Minha lista de desejos</h2><p class="mut">Preencha e envie o código para quem organizou o sorteio. Só quem tirar você vai ver.</p><label>Seu nome (igual ao da lista)<input id="wn" maxlength="60" value="${esc(ld("me",""))}"></label>`+F.map(([k,l])=>`<label>${l}<textarea rows="2" maxlength="200" id="w_${k}"></textarea></label>`).join("")+`<button class="btn red" onclick="gen()">Gerar código</button><div id="out"></div>`)}
+function gen(){const n=$("#wn").value.trim();if(!n){$("#out").innerHTML='<p class="err">Digite seu nome.</p>';return}const w={};F.forEach(([k])=>w[k]=$("#w_"+k).value.trim());const c=enc({n,w});$("#out").innerHTML=`<p class="mut">Envie este código ao organizador:</p><textarea readonly rows="3" onclick="this.select()">${c}</textarea><a class="btn wa" target="_blank" rel="noreferrer" href="https://wa.me/?text=${encodeURIComponent("Minha lista de desejos do amigo secreto: "+c)}">Enviar pelo WhatsApp</a>`}
+
+const rbtn='<button class="btn gold" onclick="reveal()">Revelar meu amigo secreto</button>';
+function part(c){PC=c;if(!D||D.src!==c){PL=dec(c);D=null;if(!PL||!PL.e||!PL.d)return card("<h2>Link inválido</h2><p>Copie o link inteiro que você recebeu.</p>")+'<button class="btn ghost" onclick="go(\'\')">Voltar ao início</button>';
+return card(`<h2>${esc(PL.d.name)}</h2>${rulesHtml(PL.d)}`)+card(`<h2>Quem é você?</h2><label>Seu nome<input id="pn" autocomplete="off" value="${esc(ld("me",""))}" onkeydown="if(event.key==='Enter')qn()"></label>${PL.pw?'<label>Sua senha<input id="ps" type="password" autocomplete="off" onkeydown="if(event.key===\'Enter\')qn()"></label>':""}<div id="qe"></div><button class="btn gold" id="qb" onclick="qn()">Descobrir meu amigo secreto</button>`)}
+return card(`<h2>Olá, ${esc(D.me)}! 🎅</h2><p>${esc(D.d.name)}</p>${rulesHtml(D.d)}`)+`<section class="card" id="rv">${rbtn}</section>`+(D.d.wl!==false?card(`<h2>Minha lista de desejos</h2><p class="mut">Quer que quem tirou você saiba o que gostaria?</p><button class="btn ghost" onclick="go('w')">Preencher minha lista</button>`):"")}
+
+async function qn(){const b=$("#qb"),n=$("#pn").value,pw=PL.pw?$("#ps").value:"";
+const qe=t=>{$("#qe").innerHTML='<p role="alert" class="err">'+esc(t)+'</p>';b.textContent="Descobrir meu amigo secreto";b.disabled=false};
+if(!n.trim()||(PL.pw&&!pw.trim()))return qe(PL.pw?"Digite seu nome e sua senha.":"Digite seu nome.");
+if(!(crypto&&crypto.subtle))return qe("Este navegador não consegue abrir o sorteio. Abra o link no Chrome ou no Safari.");
+$("#qe").innerHTML="";b.textContent="Verificando…";b.disabled=true;
+const m=norm(n)+(PL.pw?"|"+norm(pw):"");let r=null;
+for(const e of PL.e){r=await openE(m,e);if(r)break}
+if(!r)return qe(PL.pw?"Nome ou senha incorretos. Confira e tente de novo.":"Não encontramos esse nome. Digite como está na lista do sorteio.");
+sv("me",r.me);D={...r,d:PL.d,src:PC};render()}
+
+function reveal(){const el=$("#rv"),m=t=>setTimeout(()=>{const x=$("#m");x&&(x.textContent=t)},0);el.innerHTML='<div class="center"><div class="box shake">🎁</div><p id="m" class="mut">Embrulhando o presente…</p></div>';
+setTimeout(()=>{const x=$("#m");x&&(x.textContent="Sacudindo a caixinha…")},1100);setTimeout(()=>{const x=$("#m");x&&(x.textContent="Quase lá…")},2200);
+setTimeout(()=>{if(!$("#rv")||!D)return;$("#rv").innerHTML=`<div class="center pop"><p class="mut">Você tirou…</p><p class="name">${esc(D.to)}</p>${D.d.wl!==false?wlHtml(D.w,D.to):""}<button class="btn ghost" onclick="hide()">Esconder</button></div>`},3300)}
+function hide(){$("#rv").innerHTML=rbtn}
+function shell(v){return `<div class="wrap"><header><a href="#"><span class="logo">🎁</span>Amigo Secreto</a><div class="lights" aria-hidden="true">${[0,1,2,3,4,5,6].map(i=>{const c=["#e5383b","#f6c85f","#4ade80"][i%3];return `<i style="background:${c};box-shadow:0 0 10px ${c};animation-delay:${i*.25}s"></i>`}).join("")}</div></header>${v}</div>`}
+function render(){const h=location.hash.slice(1);let v;
+if(h.startsWith("s="))v=part(h.slice(2));
+else if(h.startsWith("j="))v=joinPage(h.slice(2));
+else if(h==="novo")v=novo();
+else if(h==="entrar")v=entrar();
+else if(h==="w")v=wpage();
+else if(h==="links")v=linksView();
+else v=home();
+app.innerHTML=shell(v)}
+addEventListener("focusin",e=>{if(e.target&&/^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)){setTimeout(()=>e.target.scrollIntoView({block:"nearest",behavior:"smooth"}),220)}},{passive:true});
+addEventListener("hashchange",()=>{err=info="";tried=false;ask=false;D=null;render();scrollTo(0,0)});render();
+</script></body></html>
